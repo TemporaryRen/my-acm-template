@@ -1,5 +1,5 @@
 /*
-the author,an up of bilibili 
+The original author is a content creator on Bilibil 
 see about https://www.bilibili.com/video/BV1ArmpYcEL1?spm_id_from=333.788.videopod.sections&vd_source=82bb775fb6a7ce6a29bd3e3509220efd
 
 */ 
