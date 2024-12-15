@@ -6,3 +6,4 @@ template of some algorithm
 |acmz|common template|
 |kmp search|kmp search|
 |pi_fun|prefix array function|
+|Z_fun| Z function|
