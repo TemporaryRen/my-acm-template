@@ -26,23 +26,26 @@ void solve(){
         if(a.L != b.L) return a.L < b.L;
         else return a.R > b.R;
     });
-    for(int i=1;i<n+1;i++) cout<<node[i].idx<<" ";
-    cout<<"\n";
     stack<pair<int,int>> right;
     right.push({R(1),L(1)});
+    ans[idx(1)] = 0;
     forn(i,2,n+1){
         int total = 0;
         int l = 0,r = 1e9 + 5;
-        while(!right.empty() && R(i) <= right.top().first){
+        while(!right.empty() && R(i) < right.top().first){
             auto t = right.top();
-            l = max(t.second,l);
-            r = min(r,t.first);
+            if(t.second <= L(i)){
+                l = max(t.second,l);
+                r = t.first;
+            }
             right.pop();
         }
-        if(r != 1e9 + 5 && l != 0) ans[i] = r - R(i) + L(i) - l;
+        if(r != 1e9 + 5 && l != 0) ans[idx(i)] = r - R(i) + L(i) - l;
+        else ans[idx(i)] = 0;
         right.push({R(i),L(i)});
     }
     for(int i=1;i<=n;i++) cout<<ans[i]<<"\n";
+    cout<<"\n";
 }
 
 
