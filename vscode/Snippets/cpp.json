@@ -5,7 +5,7 @@
 			"#include <bits/stdc++.h>",
 			"using namespace std;",
 			"#define ll long long",
-			"#define forn(i, l, r) for(int i=l;i<=r;i++)\n",
+			"#define forn(i, l, r) for(int i=l;i<r;i++)\n",
 			"void solve(){",
 			"}",
 			"\n",
