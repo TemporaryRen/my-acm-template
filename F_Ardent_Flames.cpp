@@ -2,14 +2,20 @@
 using namespace std;
 #define ll long long
 #define forn(i, l, r) for(int i=l;i<r;i++)
-
+const int MX = 1e5 + 5;
+ll h[MX],x[MX];
+ll n,m,k;
 void solve(){
-    int n,m,k;cin>>n>>m>>k;
-    vector<int>h(n),x(n);
+    cin>>n>>m>>k;
     forn(i,0,n) cin>>h[i];
     forn(i,0,n) {cin>>x[i];x[i]--;}
     ll l = 0LL,r = 1e14 + 5;
     auto check = [](const int ak)->bool {
+        for(int i=0;i<n;i++){
+            int t = (h[i] + ak - 1) / ak;
+            if(t>m) continue;
+        }
+        map<int,int> cnt;
         return true;
     };
     while(r - l > 1){
