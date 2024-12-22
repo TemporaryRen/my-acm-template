@@ -13,7 +13,7 @@ void solve(){
     ll limit = 1e9+1;
     ll l = 0LL,r = limit;
     auto check = [](const int ak)->bool {
-        vector<array<int,2>> cnt;
+        vector<array<ll,2>> cnt;
         for(int i=0;i<n;i++){
             ll t = (h[i] + ak - 1) / ak;
             if(t>m) continue;
