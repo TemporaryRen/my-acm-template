@@ -5,20 +5,17 @@ using namespace std;
 #define for0(i, r, l) for(int i=r;i>l;i--)
 #define all(a) a.begin(),a.end()
 
+
 void solve(){
-    ll n,m;cin>>n>>m;
-    vector paints(m,0);
-    forn(i,0,m) cin>>paints[i];
-    sort(all(paints));
-    ll ans = 0;
-    forn(i,1,n){
-        int t1 = lower_bound(all(paints),i) - paints.begin();
-        int t2 = lower_bound(all(paints),n-i) - paints.begin();
-        if(t1 == m || t2 == m) continue;
-        if(t1 > t2) swap(t1,t2);
-        ans += (ll)(m-t2) * (m-t1-1);
+    int n,t,mmax = 0,mmin = 1e9 + 5;
+    cin>>n;
+    forn(i,0,n){
+        cin>>t;
+        mmax = max(mmax,t);
+        mmin = min(mmin,t);
     }
-    cout<<ans<<"\n";
+    cout<<mmax - mmin<<"\n";
+    
 }
 
 
