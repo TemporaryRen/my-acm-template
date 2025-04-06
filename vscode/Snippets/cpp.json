@@ -115,5 +115,36 @@
 			"}"
 		],
 		"description": "manacher function"
+	},
+	"spare table":{
+		"prefix": ["spare_table"],
+		"body":[
+			"struct SpareTable{",
+			"\tvector<vector<int>> st;",
+			"\tint size;",
+			"\tint merge(int x,int y){",
+			"\t\treturn max(x,y);",
+			"\t}",
+			"\tSpareTable(vector<int> &a){",
+			"\t\tint n = a.size();",
+			"\t\tsize = log2(n);",
+			"\t\tst.resize(n,vector<int>(size+1,0));",
+			"\t\tfor(int i = 0; i < n; i++) st[i][0] = a[i];",
+			"\t\tfor(int i=1;(1<<i)<=n;i++){",
+			"\t\t\tfor(int j=0;j<=(n-(1<<i));j++){",
+			"\t\t\t\tst[j][i] = merge(st[j][i-1],st[j+(1<<(i-1))][i-1]);",
+			"\t\t\t}",
+			"\t\t}",
+			"\t}",
+			"\n",
+			"\tint query(int l,int r){",
+			"\t\tint len = r-l+1;",
+			"\t\tint k = log2(len);",
+			"\t\treturn merge(st[l][k],st[r-(1<<k)+1][k]);",
+			"\t}",
+			"};"
+		],
+		"description": "spare table"
 	}
+
 }
